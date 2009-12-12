@@ -1,0 +1,9 @@
+log/*.log
+tmp/**/*
+doc/api
+doc/app
+*.*~
+*~
+\#*#
+.DS_Store
+*.swp
