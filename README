@@ -34,3 +34,9 @@ $ jakob test:namespace2:simplewithnamespace2
 TODO:
 
 * Lots of things. This is just a experiment right now. Is really nice play with Node.
+
+HOWTO Install?
+
+By now just do something like this:
+	export NODE_PATH=~/jakob/lib:$NODE_PATH
+	export PATH=~/jakob/bin:$PATH
