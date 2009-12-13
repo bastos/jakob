@@ -1,3 +1,21 @@
 #!/usr/bin/env node
-
-# Colocar aqui a instaciação do Jacob lendo o arquivo do dir corrente.
+(function(){
+	sys = require('sys');
+	posix = require('posix');	
+	Jakob = require('jakob').Jakob;
+	jakob = new Jakob();
+	jakobfile = process.cwd() + "/Jakobfile"
+	process.mixin(jakob);
+	process.mixin(require(jakobfile));
+	task_name = process.ARGV[2]
+	
+	task("list", function(){
+		list();
+	});
+	
+	if(task_name !== undefined) {
+		invoke(process.ARGV[2])
+	} else {
+		sys.puts("USE LIKE THIS: jakob testtask")
+	}
+})();
