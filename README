@@ -1,1 +1,36 @@
-Jakob a Make for Node.js
+Jakob a Make/Rake for Node.js
+=============================
+
+How to use:
+
+Create a file Jakobfile.js and add tasks like this:
+
+	task('test', function(options) {
+		sys.puts("It Works");
+	});
+
+Namespaces:
+
+	namespace('test', function(test) {
+		test.task('simplewithnamespace', function(options) {
+			sys.puts("hey");
+			return true;
+		});
+	
+		test.namespace('namespace2', function(test) {
+			test.task('simplewithnamespace2', function(options) {
+				sys.puts("ho");			
+				return true;
+			});		
+		});
+	
+	});
+	
+So type on your terminal:
+
+$ jakob test:namespace2:simplewithnamespace2
+>> ho
+
+TODO:
+
+* Lots of things. This is just a experiment right now. Is really nice play with Node.
