@@ -7,7 +7,13 @@ Create a file Jakobfile.js and add tasks like this:
 
 	task('test', function(options) {
 		sys.puts("It Works");
+		return true;
 	});
+
+Example:
+
+	$ jakob simple
+	>> It Works
 
 Namespaces:
 
@@ -31,7 +37,7 @@ So type on your terminal:
 	$ jakob test:namespace2:simplewithnamespace2
 	>> ho
 
-Dependencie:
+Dependencies (the runfirst task should return true):
 
 	jakob.task('runfirst', function(options) {
 		sys.puts("FIRST")
@@ -43,7 +49,7 @@ Dependencie:
 		return true;
 	}, { depends : ["runfirst"] })
 
-See more examples on tes/test.js
+See more examples on test/test.js
 
 TODO:
 
@@ -52,5 +58,6 @@ TODO:
 HOWTO Install?
 
 By now just do something like this:
+
 	export NODE_PATH=~/jakob/lib:$NODE_PATH
 	export PATH=~/jakob/bin:$PATH
