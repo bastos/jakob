@@ -22,7 +22,7 @@ jakob.task('simple', function(options) {
 	return true;
 });
 
-assert.equal(true, jakob.task('create', function(options){}), "Create a task");
+assert.notEqual(false, jakob.task('create', function(options){}), "Create a task");
 
 assert.equal('Example task: example', jakob.invoke('example'), "Simple task");
 
@@ -62,5 +62,18 @@ jakob.namespace('test', function(test) {
 assert.equal(true, jakob.invoke('test:simplewithnamespace'), "Called a task with namespace");
 assert.equal(true, jakob.invoke('test:namespace2:simplewithnamespace2'), "Called a task with nested namespaces");
 
+// Test Dependencies
+jakob.task('runfirst', function(options) {
+	sys.puts("FIRST")
+	return true;
+});
+
+jakob.task('second', function(options) {
+	sys.puts("SECOND")
+	return true;
+}, { depends : ["runfirst"] })
+
+jakob.invoke('second');
+
 // List all tasks:
-jakob.list();
+// jakob.list();

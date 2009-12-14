@@ -28,8 +28,22 @@ Namespaces:
 	
 So type on your terminal:
 
-$ jakob test:namespace2:simplewithnamespace2
->> ho
+	$ jakob test:namespace2:simplewithnamespace2
+	>> ho
+
+Dependencie:
+
+	jakob.task('runfirst', function(options) {
+		sys.puts("FIRST")
+		return true;
+	});
+
+	jakob.task('second', function(options) {
+		sys.puts("SECOND")
+		return true;
+	}, { depends : ["runfirst"] })
+
+See more examples on tes/test.js
 
 TODO:
 
