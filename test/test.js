@@ -60,18 +60,24 @@ jakob.namespace('test', function(test) {
 });
 
 assert.equal(true, jakob.invoke('test:simplewithnamespace'), "Called a task with namespace");
+
 assert.equal(true, jakob.invoke('test:namespace2:simplewithnamespace2'), "Called a task with nested namespaces");
 
 // Test Dependencies
+var runfirst_flag = false;
+
 jakob.task('runfirst', function(options) {
-	sys.puts("FIRST")
+	runfirst_flag = true;
 	return true;
 });
 
 jakob.task('second', function(options) {
-	sys.puts("SECOND")
 	return true;
 }, { depends : ["runfirst"] })
+
+assert.equal(true, jakob.invoke('runfirst'), "Execute the second task");
+
+assert.equal(true, runfirst_flag, "Execute runfirst task via second task");
 
 jakob.invoke('second');
 
