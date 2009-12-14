@@ -37,16 +37,14 @@ So type on your terminal:
 	$ jakob test:namespace2:simplewithnamespace2
 	>> ho
 
-Dependencies (the runfirst task should return true):
+Dependencies:
 
 	jakob.task('runfirst', function(options) {
 		sys.puts("FIRST")
-		return true;
 	});
 
 	jakob.task('second', function(options) {
 		sys.puts("SECOND")
-		return true;
 	}, { depends : ["runfirst"] })
 
 See more examples on test/test.js
@@ -55,7 +53,7 @@ TODO:
 
 * Lots of things. This is just a experiment right now. Is really nice play with Node.
 
-HOWTO Install?
+How to Install?
 
 By now just do something like this:
 
