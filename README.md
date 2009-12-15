@@ -17,20 +17,20 @@ Example:
 
 Namespaces:
 
-		namespace('test', function(test) {
-		  test.task('simplewithnamespace', function(options) {
-		    sys.puts("hey");
-		    return true;
-		  });
+    namespace('test', function(test) {
+      test.task('simplewithnamespace', function(options) {
+        sys.puts("hey");
+        return true;
+      });
 
-		  test.namespace('namespace2', function(test) {
-		    test.task('simplewithnamespace2', function(options) {
-		      sys.puts("ho");     
-		      return true;
-		    });   
-		  });
+      test.namespace('namespace2', function(test) {
+        test.task('simplewithnamespace2', function(options) {
+          sys.puts("ho");     
+          return true;
+        });   
+      });
 
-		});
+    });
   
 So type on your terminal:
 
@@ -46,6 +46,17 @@ Dependencies:
 	  jakob.task('second', function(options) {
 	    sys.puts("SECOND")
 	  }, { depends : ["runfirst"] })
+
+Default task:
+
+    jakob.task('default', function(options) {
+      sys.puts("nice")
+    });
+
+And run it:
+
+    $ jakob
+    >> nice
 
 See more examples on test/test.js
 
